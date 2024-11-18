@@ -47,13 +47,24 @@ class SubmissionPageBody extends StatelessWidget {
               return state.when(
                 initial: () => const SizedBox(),
                 loading: () => const Center(child: CircularProgressIndicator()),
-                success: (submissions) => ListView.builder(
-                  itemCount: submissions.length,
-                  itemBuilder: (context, index) {
-                    final submission = submissions[index];
-                    return SubmissionCard(submission: submission);
-                  },
-                ),
+                success: (submissions) => submissions.isEmpty
+                    ? Center(
+                        child: Text(
+                          "No submittions yet",
+                          style:
+                              Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: submissions.length,
+                        itemBuilder: (context, index) {
+                          final submission = submissions[index];
+                          return SubmissionCard(submission: submission);
+                        },
+                      ),
                 failure: (message) => Center(
                   child: Text('Error: $message'),
                 ),

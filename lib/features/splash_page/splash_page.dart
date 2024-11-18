@@ -25,6 +25,13 @@ class SplashPage extends StatelessWidget {
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(2, 2),
+                        blurRadius: 4,
+                        color: Colors.black54,
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(
@@ -35,7 +42,15 @@ class SplashPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(1, 1),
+                        blurRadius: 2,
+                        color: Colors.black45,
+                      ),
+                    ],
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(
                   height: 32,
@@ -44,8 +59,18 @@ class SplashPage extends StatelessWidget {
                   onPressed: () {
                     context.go(homePage);
                   },
-                  child: const Text('Get Started'),
-                )
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: const Text(
+                    'Get Started',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
             ),
           ),
