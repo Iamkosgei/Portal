@@ -1,0 +1,65 @@
+name: portal
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+
+  #state management
+  flutter_bloc: ^8.1.6
+
+   #service locator
+  injectable: ^2.1.2
+  get_it: ^7.6.0
+
+  #fonts
+  google_fonts: ^6.1.0
+
+  #routing
+  go_router: ^10.2.0
+
+  #introduces either types
+  dartz: ^0.10.1
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+
+  #database
+  floor: ^1.4.2
+  sqflite: ^2.3.0
+
+  #Generate ids
+  uuid: ^4.5.1
+
+  collection: ^1.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+  injectable_generator: ^2.1.6
+  build_runner: ^2.3.3
+  freezed: ^2.4.1
+  json_serializable: ^6.7.1
+
+  floor_generator: ^1.4.2
+
+  lottie: ^2.1.0 
+  audioplayers: ^6.1.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/

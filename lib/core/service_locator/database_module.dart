@@ -1,0 +1,122 @@
+import 'package:floor/floor.dart';
+import 'package:injectable/injectable.dart';
+import 'package:portal/core/database/database.dart';
+
+@module
+abstract class DatabaseModule {
+  @preResolve
+  Future<AppDatabase> get database =>
+      $FloorAppDatabase.databaseBuilder('app_database.db').addCallback(Callback(
+        onCreate: (database, version) async {
+          // Insert all questions
+          await database.execute('''
+            INSERT INTO QuestionEntity (id, questionText, difficulty) VALUES
+            ('1', 'What is the capital of France?', 'easy'),
+            ('2', 'Which planet is known as the Red Planet?', 'easy'),
+            ('3', 'Who wrote the play "Romeo and Juliet"?', 'easy'),
+            ('4', 'What is the chemical symbol for water?', 'easy'),
+            ('5', 'In which year did the Titanic sink?', 'medium'),
+            ('6', 'Who painted the Mona Lisa?', 'easy'),
+            ('7', 'What is the tallest mountain in the world?', 'medium'),
+            ('8', 'Which country hosted the 2016 Summer Olympics?', 'medium'),
+            ('9', 'What is the main ingredient in guacamole?', 'easy'),
+            ('10', 'How many continents are there?', 'easy'),
+            ('11', 'Which element has the chemical symbol "O"?', 'easy'),
+            ('12', 'In which city is the Statue of Liberty located?', 'easy'),
+            ('13', 'What is the largest mammal in the world?', 'medium'),
+            ('14', 'Who is known as the "Father of Computers"?', 'medium'),
+            ('15', 'What is the national sport of Japan?', 'medium'),
+            ('16', 'Which country is famous for the maple leaf symbol?', 'easy'),
+            ('17', 'What does DNA stand for?', 'hard'),
+            ('18', 'How many degrees are in a circle?', 'easy'),
+            ('19', 'What is the name of the largest ocean on Earth?', 'medium'),
+            ('20', 'Who invented the telephone?', 'medium');
+          ''');
+
+          // Insert all options
+          await database.execute('''
+            INSERT INTO OptionEntity (id, questionId, optionText, isCorrect) VALUES
+            ('101', '1', 'Paris', 1),
+            ('102', '1', 'London', 0),
+            ('103', '1', 'Berlin', 0),
+            ('104', '1', 'Rome', 0),
+            ('105', '2', 'Mars', 1),
+            ('106', '2', 'Venus', 0),
+            ('107', '2', 'Jupiter', 0),
+            ('108', '2', 'Saturn', 0),
+            ('109', '3', 'William Shakespeare', 1),
+            ('110', '3', 'Charles Dickens', 0),
+            ('111', '3', 'Jane Austen', 0),
+            ('112', '3', 'Mark Twain', 0),
+            ('113', '4', 'H2O', 1),
+            ('114', '4', 'O2', 0),
+            ('115', '4', 'CO2', 0),
+            ('116', '4', 'NaCl', 0),
+            ('117', '5', '1912', 1),
+            ('118', '5', '1905', 0),
+            ('119', '5', '1898', 0),
+            ('120', '5', '1920', 0),
+            ('121', '6', 'Leonardo da Vinci', 1),
+            ('122', '6', 'Vincent van Gogh', 0),
+            ('123', '6', 'Pablo Picasso', 0),
+            ('124', '6', 'Claude Monet', 0),
+            ('125', '7', 'Mount Everest', 1),
+            ('126', '7', 'K2', 0),
+            ('127', '7', 'Kangchenjunga', 0),
+            ('128', '7', 'Lhotse', 0),
+            ('129', '8', 'Brazil', 1),
+            ('130', '8', 'China', 0),
+            ('131', '8', 'Japan', 0),
+            ('132', '8', 'United States', 0),
+            ('133', '9', 'Avocado', 1),
+            ('134', '9', 'Tomato', 0),
+            ('135', '9', 'Lettuce', 0),
+            ('136', '9', 'Onion', 0),
+            ('137', '10', 'Seven', 1),
+            ('138', '10', 'Six', 0),
+            ('139', '10', 'Five', 0),
+            ('140', '10', 'Eight', 0),
+            ('141', '11', 'Oxygen', 1),
+            ('142', '11', 'Hydrogen', 0),
+            ('143', '11', 'Nitrogen', 0),
+            ('144', '11', 'Carbon', 0),
+            ('145', '12', 'New York City', 1),
+            ('146', '12', 'Washington D.C.', 0),
+            ('147', '12', 'Los Angeles', 0),
+            ('148', '12', 'Chicago', 0),
+            ('149', '13', 'Blue Whale', 1),
+            ('150', '13', 'Elephant', 0),
+            ('151', '13', 'Giraffe', 0),
+            ('152', '13', 'Hippopotamus', 0),
+            ('153', '14', 'Charles Babbage', 1),
+            ('154', '14', 'Alan Turing', 0),
+            ('155', '14', 'John von Neumann', 0),
+            ('156', '14', 'Ada Lovelace', 0),
+            ('157', '15', 'Sumo Wrestling', 1),
+            ('158', '15', 'Baseball', 0),
+            ('159', '15', 'Judo', 0),
+            ('160', '15', 'Soccer', 0),
+            ('161', '16', 'Canada', 1),
+            ('162', '16', 'United States', 0),
+            ('163', '16', 'Japan', 0),
+            ('164', '16', 'Australia', 0),
+            ('165', '17', 'Deoxyribonucleic Acid', 1),
+            ('166', '17', 'Ribonucleic Acid', 0),
+            ('167', '17', 'Deoxyadenosine', 0),
+            ('168', '17', 'DNA Chain', 0),
+            ('169', '18', '360', 1),
+            ('170', '18', '180', 0),
+            ('171', '18', '90', 0),
+            ('172', '18', '720', 0),
+            ('173', '19', 'Pacific Ocean', 1),
+            ('174', '19', 'Atlantic Ocean', 0),
+            ('175', '19', 'Indian Ocean', 0),
+            ('176', '19', 'Arctic Ocean', 0),
+            ('177', '20', 'Alexander Graham Bell', 1),
+            ('178', '20', 'Thomas Edison', 0),
+            ('179', '20', 'Nikola Tesla', 0),
+            ('180', '20', 'Guglielmo Marconi', 0);
+          ''');
+        },
+      )).build();
+}
