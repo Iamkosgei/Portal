@@ -186,7 +186,11 @@ class HomePageBody extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.push(addQuestionPage);
+          context.push(addQuestionPage).then(
+            (v) {
+              context.read<QuestionCubit>().loadQuestions();
+            },
+          );
         },
         child: const Icon(
           Icons.add,
