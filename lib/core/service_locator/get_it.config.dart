@@ -13,6 +13,8 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../features/home_page/application/add_question/add_question_cubit.dart'
     as _i216;
+import '../../features/home_page/application/delete_question/delete_question_cubit.dart'
+    as _i182;
 import '../../features/home_page/application/question/question_cubit.dart'
     as _i980;
 import '../../features/home_page/application/question_details/question_details_cubit.dart'
@@ -56,6 +58,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i980.QuestionCubit(gh<_i404.IQuestionRepository>()));
     gh.factory<_i216.AddQuestionCubit>(
         () => _i216.AddQuestionCubit(gh<_i404.IQuestionRepository>()));
+    gh.factory<_i182.DeleteQuestionCubit>(
+        () => _i182.DeleteQuestionCubit(gh<_i404.IQuestionRepository>()));
     gh.factory<_i691.SubmissionCubit>(
         () => _i691.SubmissionCubit(gh<_i106.ISubmissionRepository>()));
     return this;

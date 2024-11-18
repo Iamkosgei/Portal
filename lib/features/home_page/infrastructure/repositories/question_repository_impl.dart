@@ -91,7 +91,6 @@ class QuestionRepositoryImpl implements IQuestionRepository {
   Future<Either<QuestionFailure, Unit>> deleteQuestion(String id) async {
     try {
       //TODOswitch to transactions
-
       final question = await _database.questionDao.getQuestionById(id);
       if (question != null) {
         // Due to cascade delete, this will also delete related options
