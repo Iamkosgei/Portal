@@ -106,7 +106,14 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: const Text('Create New Question'),
+        title: const Text(
+          'Create New Question',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
