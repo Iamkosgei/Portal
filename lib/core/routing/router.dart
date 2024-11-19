@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portal/core/routing/routes.dart';
-import 'package:portal/features/home_page/domain/entities/question/question.dart';
-import 'package:portal/features/home_page/presentation/add_question/add_question_page.dart';
-import 'package:portal/features/home_page/presentation/home_page/home_page.dart';
-import 'package:portal/features/home_page/presentation/question_details_page/question_details_page.dart';
-import 'package:portal/features/home_page/presentation/submissions_page/submissions_page.dart';
+import 'package:portal/features/questions/domain/entities/question/question.dart';
+import 'package:portal/features/questions/presentation/pages/add_question_page.dart';
+import 'package:portal/features/questions/presentation/pages/home_page.dart';
+import 'package:portal/features/questions/presentation/pages/question_details_page.dart';
+import 'package:portal/features/submissions/presentation/pages/submissions_page.dart';
 import 'package:portal/features/splash_page/splash_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();

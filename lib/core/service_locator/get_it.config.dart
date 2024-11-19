@@ -11,23 +11,23 @@
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
-import '../../features/home_page/application/add_question/add_question_cubit.dart'
+import '../../features/questions/presentation/bloc/add_question/add_question_cubit.dart'
     as _i216;
-import '../../features/home_page/application/delete_question/delete_question_cubit.dart'
+import '../../features/questions/presentation/bloc/delete_question/delete_question_cubit.dart'
     as _i182;
-import '../../features/home_page/application/question/question_cubit.dart'
+import '../../features/questions/presentation/bloc/question/question_cubit.dart'
     as _i980;
-import '../../features/home_page/application/question_details/question_details_cubit.dart'
+import '../../features/questions/presentation/bloc/question_details/question_details_cubit.dart'
     as _i469;
-import '../../features/home_page/application/submissions/submission_cubit.dart'
+import '../../features/submissions/presentation/bloc/submissions/submission_cubit.dart'
     as _i691;
-import '../../features/home_page/domain/repositories/i_question_repository.dart'
+import '../../features/questions/domain/repositories/i_question_repository.dart'
     as _i404;
-import '../../features/home_page/domain/repositories/i_submission_repository.dart'
+import '../../features/submissions/domain/repositories/i_submission_repository.dart'
     as _i106;
-import '../../features/home_page/infrastructure/repositories/question_repository_impl.dart'
+import '../../features/questions/data/repositories/question_repository_impl.dart'
     as _i421;
-import '../../features/home_page/infrastructure/repositories/submission_repository_impl.dart'
+import '../../features/submissions/data/repositories/submission_repository_impl.dart'
     as _i429;
 import '../database/database.dart' as _i660;
 import 'database_module.dart' as _i384;

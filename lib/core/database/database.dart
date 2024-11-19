@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:floor/floor.dart';
-import 'package:portal/core/database/daos/option_dao.dart';
-import 'package:portal/core/database/daos/question_dao.dart';
-import 'package:portal/core/database/daos/submission_dao.dart';
-import 'package:portal/core/database/entities/option_entity.dart';
-import 'package:portal/core/database/entities/question_entity.dart';
-import 'package:portal/core/database/entities/submission_entity.dart';
+import 'package:portal/features/questions/data/daos/option_dao.dart';
+import 'package:portal/features/questions/data/daos/question_dao.dart';
+import 'package:portal/features/submissions/data/daos/submission_dao.dart';
+import 'package:portal/features/questions/data/models/option_entity.dart';
+import 'package:portal/features/questions/data/models/question_entity.dart';
+import 'package:portal/features/submissions/data/models/submission_entity.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 
 part 'database.g.dart';
