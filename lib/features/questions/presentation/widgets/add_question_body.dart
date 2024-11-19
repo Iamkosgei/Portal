@@ -8,16 +8,18 @@ import 'package:portal/features/questions/domain/entities/question/question.dart
 import 'package:uuid/uuid.dart';
 
 class AddQuestionBody extends StatefulWidget {
-  const AddQuestionBody({super.key});
+  final Question? initialQuestion;
+
+  const AddQuestionBody({super.key, this.initialQuestion});
 
   @override
-  _AddQuestionBodyState createState() => _AddQuestionBodyState();
+  AddQuestionBodyState createState() => AddQuestionBodyState();
 }
 
-class _AddQuestionBodyState extends State<AddQuestionBody> {
+class AddQuestionBodyState extends State<AddQuestionBody> {
   final _formKey = GlobalKey<FormState>();
-  final _questionController = TextEditingController();
-  final _options = <TextEditingController>[];
+  late TextEditingController _questionController;
+  late List<TextEditingController> _options;
   int? _correctOptionIndex;
   DifficultyLevel _difficultyLevel = DifficultyLevel.easy;
   bool _isSubmitting = false;
@@ -25,9 +27,23 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
   @override
   void initState() {
     super.initState();
-    // Start with 4 options by default
-    for (int i = 0; i < 4; i++) {
-      _addOption();
+
+    _questionController =
+        TextEditingController(text: widget.initialQuestion?.questionText ?? '');
+
+    _options = [];
+    if (widget.initialQuestion != null) {
+      for (var option in widget.initialQuestion!.options) {
+        _options.add(TextEditingController(text: option.optionText));
+        if (option.isCorrect) {
+          _correctOptionIndex = _options.length - 1;
+        }
+      }
+      _difficultyLevel = widget.initialQuestion!.difficulty;
+    } else {
+      for (int i = 0; i < 4; i++) {
+        _addOption();
+      }
     }
   }
 
@@ -76,9 +92,11 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: const Text(
-          'Create New Question',
-          style: TextStyle(
+        title: Text(
+          widget.initialQuestion == null
+              ? 'Create New Question'
+              : 'Edit Question',
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 18,
@@ -286,7 +304,8 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
                                 _isSubmitting = true;
                               });
 
-                              final questionId = const Uuid().v4();
+                              final questionId = widget.initialQuestion?.id ??
+                                  const Uuid().v4();
                               final question = Question(
                                 id: questionId,
                                 questionText: _questionController.text,
@@ -294,7 +313,9 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
                                 options: List.generate(
                                   _options.length,
                                   (index) => Option(
-                                    id: const Uuid().v4(),
+                                    id: widget.initialQuestion?.options[index]
+                                            .id ??
+                                        const Uuid().v4(),
                                     questionId: questionId,
                                     optionText: _options[index].text,
                                     isCorrect: index == _correctOptionIndex,
@@ -302,9 +323,15 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
                                 ),
                               );
 
-                              context
-                                  .read<AddQuestionCubit>()
-                                  .createQuestion(question);
+                              if (widget.initialQuestion == null) {
+                                context
+                                    .read<AddQuestionCubit>()
+                                    .createQuestion(question);
+                              } else {
+                                context
+                                    .read<AddQuestionCubit>()
+                                    .updateQuestion(question);
+                              }
                             } else if (_correctOptionIndex == null) {
                               showErrorSnackBar(
                                 context,
@@ -319,9 +346,11 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
                     ),
                     child: _isSubmitting
                         ? const CircularProgressIndicator(color: Colors.white)
-                        : const Text(
-                            'Save Question',
-                            style: TextStyle(fontSize: 16),
+                        : Text(
+                            widget.initialQuestion == null
+                                ? 'Save Question'
+                                : 'Update Question',
+                            style: const TextStyle(fontSize: 16),
                           ),
                   ),
                 ),

@@ -3,12 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portal/core/common/ui_utils.dart';
 import 'package:portal/core/service_locator/get_it.dart';
+import 'package:portal/features/questions/domain/entities/question/question.dart';
 import 'package:portal/features/questions/presentation/bloc/add_question/add_question_cubit.dart';
 import 'package:portal/features/questions/presentation/bloc/add_question/add_question_state.dart';
 import 'package:portal/features/questions/presentation/widgets/add_question_body.dart';
 
 class AddQuestionPage extends StatelessWidget {
-  const AddQuestionPage({super.key});
+  final Question? question;
+
+  const AddQuestionPage({super.key, this.question});
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +23,26 @@ class AddQuestionPage extends StatelessWidget {
             state.whenOrNull(
               success: () {
                 context.pop();
-                showSuccessSnackBar(context, 'Question added successfully!');
+                showSuccessSnackBar(
+                  context,
+                  question != null
+                      ? 'Question updated successfully!'
+                      : 'Question added successfully!',
+                );
               },
               failure: (failure) {
                 showErrorSnackBar(
-                    context, 'Failed to add question. Please try again.');
+                  context,
+                  question != null
+                      ? 'Failed to update question. Please try again.'
+                      : 'Failed to add question. Please try again.',
+                );
               },
             );
           },
-          child: const AddQuestionBody(),
+          child: AddQuestionBody(
+            initialQuestion: question,
+          ),
         ),
       ),
     );

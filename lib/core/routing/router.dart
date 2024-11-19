@@ -23,9 +23,13 @@ GoRouter router() {
         builder: (context, state) => const HomePage(),
       ),
       GoRoute(
-        path: addQuestionPage,
-        builder: (context, state) => const AddQuestionPage(),
-      ),
+          path: addQuestionPage,
+          builder: (context, state) {
+            final question = state.extra as Question?;
+            return AddQuestionPage(
+              question: question,
+            );
+          }),
       GoRoute(
         path: submissionsPage,
         builder: (context, state) => const SubmissionsPage(),

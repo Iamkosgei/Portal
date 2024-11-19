@@ -21,4 +21,15 @@ class AddQuestionCubit extends Cubit<AddQuestionState> {
       ),
     );
   }
+
+  Future<void> updateQuestion(Question question) async {
+    emit(const AddQuestionState.loading());
+    final failureOrSuccess = await _repository.updateQuestion(question);
+    emit(
+      failureOrSuccess.fold(
+        (failure) => AddQuestionState.failure(some(failure)),
+        (_) => const AddQuestionState.success(),
+      ),
+    );
+  }
 }

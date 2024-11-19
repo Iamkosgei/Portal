@@ -7,6 +7,7 @@ import 'package:portal/features/questions/presentation/bloc/delete_question/dele
 import 'package:portal/features/questions/presentation/bloc/question/question_cubit.dart';
 import 'package:portal/features/questions/presentation/bloc/question/question_state.dart';
 import 'package:portal/features/questions/domain/entities/question/question.dart';
+import 'package:portal/features/questions/presentation/widgets/question_card.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key});
@@ -72,75 +73,15 @@ class HomePageBody extends StatelessWidget {
                             itemBuilder: (context, index) {
                               final question = questions[index];
                               return InkWell(
-                                onTap: () {
-                                  context.push(
-                                    questionDetailsPage,
-                                    extra: question,
-                                  );
-                                },
-                                child: Container(
-                                  margin: const EdgeInsets.all(8),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 32,
-                                  ),
-                                  decoration: const BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/card_bg.png"),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(20),
-                                    ),
-                                  ),
-                                  child: ListTile(
-                                    title: Text(
-                                      question.questionText,
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    subtitle: Text(
-                                      "${question.options.length} choices",
-                                    ),
-                                    trailing: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            vertical: 4,
-                                            horizontal: 8,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                              Radius.circular(8),
-                                            ),
-                                            color: getDifficultyColor(
-                                                    question.difficulty)
-                                                .withOpacity(.08),
-                                          ),
-                                          child: Text(
-                                            question.difficulty.name,
-                                            style: TextStyle(
-                                              color: getDifficultyColor(
-                                                  question.difficulty),
-                                            ),
-                                          ),
-                                        ),
-                                        IconButton(
-                                          icon: const Icon(Icons.delete),
-                                          onPressed: () {
-                                            _showDeleteConfirmation(
-                                                context, question.id);
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              );
+                                  onTap: () {
+                                    context.push(
+                                      questionDetailsPage,
+                                      extra: question,
+                                    );
+                                  },
+                                  child: QuestionCard(
+                                    question: question,
+                                  ));
                             },
                           );
                         },
@@ -171,31 +112,6 @@ class HomePageBody extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _showDeleteConfirmation(
-      BuildContext context, String questionId) async {
-    final shouldDelete = await showDialog<bool>(
-      context: context,
-      builder: (_) => AlertDialog(
-        title: const Text('Delete Question'),
-        content: const Text('Are you sure you want to delete this question?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: const Text('Delete'),
-          ),
-        ],
-      ),
-    );
-
-    if (shouldDelete == true) {
-      context.read<DeleteQuestionCubit>().deleteQuestion(questionId);
-    }
   }
 
   void _showFilterBottomSheet(BuildContext context) {
@@ -251,21 +167,5 @@ class HomePageBody extends StatelessWidget {
         );
       },
     );
-  }
-
-  Color getDifficultyColor(DifficultyLevel level) {
-    var color = Colors.green;
-    switch (level) {
-      case DifficultyLevel.easy:
-        color = Colors.green;
-        break;
-      case DifficultyLevel.medium:
-        color = Colors.orange;
-        break;
-      case DifficultyLevel.hard:
-        color = Colors.red;
-        break;
-    }
-    return color;
   }
 }
