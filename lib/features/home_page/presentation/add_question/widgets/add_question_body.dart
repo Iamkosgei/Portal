@@ -1,41 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import 'package:portal/core/common/string_utils.dart';
 import 'package:portal/core/common/ui_utils.dart';
-import 'package:portal/core/service_locator/get_it.dart';
 import 'package:portal/features/home_page/application/add_question/add_question_cubit.dart';
-import 'package:portal/features/home_page/application/add_question/add_question_state.dart';
 import 'package:portal/features/home_page/domain/entities/option/option.dart';
 import 'package:portal/features/home_page/domain/entities/question/question.dart';
 import 'package:uuid/uuid.dart';
-
-class AddQuestionPage extends StatelessWidget {
-  const AddQuestionPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomBackground(
-      child: BlocProvider(
-        create: (context) => getIt<AddQuestionCubit>(),
-        child: BlocListener<AddQuestionCubit, AddQuestionState>(
-          listener: (context, state) {
-            state.whenOrNull(
-              success: () {
-                context.pop();
-                showSuccessSnackBar(context, 'Question added successfully!');
-              },
-              failure: (failure) {
-                showErrorSnackBar(
-                    context, 'Failed to add question. Please try again.');
-              },
-            );
-          },
-          child: const AddQuestionBody(),
-        ),
-      ),
-    );
-  }
-}
 
 class AddQuestionBody extends StatefulWidget {
   const AddQuestionBody({super.key});
@@ -362,42 +332,4 @@ class _AddQuestionBodyState extends State<AddQuestionBody> {
       ),
     );
   }
-}
-
-extension StringExtension on String {
-  String capitalize() {
-    return "${this[0].toUpperCase()}${substring(1)}";
-  }
-}
-
-void showSuccessSnackBar(BuildContext context, String message) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Row(
-        children: [
-          const Icon(Icons.check_circle, color: Colors.white),
-          const SizedBox(width: 8),
-          Text(message),
-        ],
-      ),
-      backgroundColor: Colors.green,
-      behavior: SnackBarBehavior.floating,
-    ),
-  );
-}
-
-void showErrorSnackBar(BuildContext context, String message) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Row(
-        children: [
-          const Icon(Icons.error, color: Colors.white),
-          const SizedBox(width: 8),
-          Text(message),
-        ],
-      ),
-      backgroundColor: Colors.red,
-      behavior: SnackBarBehavior.floating,
-    ),
-  );
 }

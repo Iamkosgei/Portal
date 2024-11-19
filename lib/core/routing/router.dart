@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portal/core/routing/routes.dart';
 import 'package:portal/features/home_page/domain/entities/question/question.dart';
-import 'package:portal/features/home_page/presentation/add_question_page.dart';
+import 'package:portal/features/home_page/presentation/add_question/add_question_page.dart';
 import 'package:portal/features/home_page/presentation/home_page.dart';
 import 'package:portal/features/home_page/presentation/question_details_page.dart';
 import 'package:portal/features/home_page/presentation/submissions_page.dart';

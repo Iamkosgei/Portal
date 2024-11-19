@@ -1,28 +1,12 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 import 'package:portal/core/common/ui_utils.dart';
-import 'package:portal/core/service_locator/get_it.dart';
 import 'package:portal/features/home_page/application/question_details/question_details_cubit.dart';
 import 'package:portal/features/home_page/application/question_details/question_details_state.dart';
 import 'package:portal/features/home_page/domain/entities/question/question.dart';
-import 'package:audioplayers/audioplayers.dart';
-import 'package:lottie/lottie.dart';
-
-class QuestionDetailsPage extends StatelessWidget {
-  final Question question;
-
-  const QuestionDetailsPage({super.key, required this.question});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => getIt<QuestionDetailsCubit>(),
-        child: QuestionDetailsBody(
-          question: question,
-        ));
-  }
-}
 
 class QuestionDetailsBody extends StatefulWidget {
   final Question question;
