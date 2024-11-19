@@ -1,5 +1,13 @@
 **Portal** is a Flutter application designed to help users save questions with answers, respond to them, and receive feedback on their answers by indicating the correct responses. This app is built using a clean architecture approach, making it modular, testable, and scalable.
 
+## SCREENSHOTS
+
+<p float="left">
+  <img src="https://github.com/user-attachments/assets/47590a5c-7271-40bb-843d-50dd4e98d62c" width="250" />
+  <img src="https://github.com/user-attachments/assets/83d4d199-5559-4608-832b-c1ce820ea2e7" width="250" />
+</p>
+*Left: iOS Interface | Right: Android Interface*
+
 ## Features
 
 - **Question Creation**: Save questions along with their answers.
