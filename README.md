@@ -6,7 +6,11 @@
   <img src="https://github.com/user-attachments/assets/47590a5c-7271-40bb-843d-50dd4e98d62c" width="250" />
   <img src="https://github.com/user-attachments/assets/83d4d199-5559-4608-832b-c1ce820ea2e7" width="250" />
 </p>
-*Left: iOS Interface | Right: Android Interface*
+*Left: Android Interface | Right: iOS Interface*
+
+## Demo Video
+
+[![Watch the video](https://github.com/user-attachments/assets/c0a74568-1c7f-4d39-b49e-625caea9b245)](https://github.com/user-attachments/assets/c0a74568-1c7f-4d39-b49e-625caea9b245)
 
 ## Features
 
