@@ -1,3 +1,4 @@
+![example workflow](https://github.com/github/docs/actions/workflows/flutter_tests.yml/badge.svg)
 **Portal** is a Flutter application designed to help users save questions with answers, respond to them, and receive feedback on their answers by indicating the correct responses. This app is built using a clean architecture approach, making it modular, testable, and scalable.
 
 ## SCREENSHOTS
