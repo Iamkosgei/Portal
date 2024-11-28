@@ -1,4 +1,4 @@
-name: Flutter Tests
+name: Flutter CI - Test and Coverage
 on:
   push:
     branches: [ main ]
@@ -31,3 +31,18 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           file: ./coverage/lcov.info
+          
+      - name: Create Coverage Badge
+        uses: jaywcjlove/coverage-badges-cli@main
+        with:
+          style: flat
+          source: ./coverage/lcov.info
+          output: coverage-badge.svg
+      
+      - name: Commit Coverage Badge
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add coverage-badge.svg
+          git commit -m "Update coverage badge" || echo "No changes to commit"
+          git push
