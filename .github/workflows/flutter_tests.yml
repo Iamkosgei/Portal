@@ -27,19 +27,20 @@ jobs:
       - name: Generate coverage
         run: flutter test --coverage
       
-      - name: Upload coverage
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           file: ./coverage/lcov.info
+          fail_ci_if_error: true
           
-      - name: Create Coverage Badge
-        uses: jaywcjlove/coverage-badges-cli@main
+      - name: Coverage Badge
+        uses: okalam/workflow-badge-action@v1
         with:
+          source_file: ./coverage/lcov.info
+          output_file: coverage-badge.svg
           style: flat
-          source: ./coverage/lcov.info
-          output: coverage-badge.svg
       
-      - name: Commit Coverage Badge
+      - name: Commit Badge
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
