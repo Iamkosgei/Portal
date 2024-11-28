@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:portal/features/questions/data/models/option_entity.dart';
 import 'package:portal/features/questions/data/models/question_entity.dart';
 import 'package:portal/features/questions/domain/entities/option/option.dart';
@@ -8,9 +9,10 @@ class QuestionMapper {
     return Question(
       id: entity.id,
       questionText: entity.questionText,
-      difficulty: DifficultyLevel.values.firstWhere(
-        (e) => e.toString().split('.').last == entity.difficulty,
-      ),
+      difficulty: DifficultyLevel.values.firstWhereOrNull(
+            (e) => e.toString().split('.').last == entity.difficulty,
+          ) ??
+          DifficultyLevel.easy,
       options: options
           .map((opt) => Option(
                 id: opt.id,

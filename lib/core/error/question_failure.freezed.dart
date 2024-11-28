@@ -22,6 +22,7 @@ mixin _$QuestionFailure {
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
     required TResult Function() unableToDelete,
+    required TResult Function() notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$QuestionFailure {
     TResult? Function()? insufficientPermission,
     TResult? Function()? unableToUpdate,
     TResult? Function()? unableToDelete,
+    TResult? Function()? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$QuestionFailure {
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
     TResult Function()? unableToDelete,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +51,7 @@ mixin _$QuestionFailure {
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
     required TResult Function(_UnableToDelete value) unableToDelete,
+    required TResult Function(_NotFound value) notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$QuestionFailure {
     TResult? Function(_InsufficientPermission value)? insufficientPermission,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
     TResult? Function(_UnableToDelete value)? unableToDelete,
+    TResult? Function(_NotFound value)? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$QuestionFailure {
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     TResult Function(_UnableToDelete value)? unableToDelete,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +141,7 @@ class _$UnexpectedImpl implements _Unexpected {
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
     required TResult Function() unableToDelete,
+    required TResult Function() notFound,
   }) {
     return unexpected();
   }
@@ -146,6 +153,7 @@ class _$UnexpectedImpl implements _Unexpected {
     TResult? Function()? insufficientPermission,
     TResult? Function()? unableToUpdate,
     TResult? Function()? unableToDelete,
+    TResult? Function()? notFound,
   }) {
     return unexpected?.call();
   }
@@ -157,6 +165,7 @@ class _$UnexpectedImpl implements _Unexpected {
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
     TResult Function()? unableToDelete,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -173,6 +182,7 @@ class _$UnexpectedImpl implements _Unexpected {
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
     required TResult Function(_UnableToDelete value) unableToDelete,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return unexpected(this);
   }
@@ -184,6 +194,7 @@ class _$UnexpectedImpl implements _Unexpected {
     TResult? Function(_InsufficientPermission value)? insufficientPermission,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
     TResult? Function(_UnableToDelete value)? unableToDelete,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return unexpected?.call(this);
   }
@@ -195,6 +206,7 @@ class _$UnexpectedImpl implements _Unexpected {
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     TResult Function(_UnableToDelete value)? unableToDelete,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -256,6 +268,7 @@ class _$InsufficientPermissionImpl implements _InsufficientPermission {
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
     required TResult Function() unableToDelete,
+    required TResult Function() notFound,
   }) {
     return insufficientPermission();
   }
@@ -267,6 +280,7 @@ class _$InsufficientPermissionImpl implements _InsufficientPermission {
     TResult? Function()? insufficientPermission,
     TResult? Function()? unableToUpdate,
     TResult? Function()? unableToDelete,
+    TResult? Function()? notFound,
   }) {
     return insufficientPermission?.call();
   }
@@ -278,6 +292,7 @@ class _$InsufficientPermissionImpl implements _InsufficientPermission {
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
     TResult Function()? unableToDelete,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -294,6 +309,7 @@ class _$InsufficientPermissionImpl implements _InsufficientPermission {
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
     required TResult Function(_UnableToDelete value) unableToDelete,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return insufficientPermission(this);
   }
@@ -305,6 +321,7 @@ class _$InsufficientPermissionImpl implements _InsufficientPermission {
     TResult? Function(_InsufficientPermission value)? insufficientPermission,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
     TResult? Function(_UnableToDelete value)? unableToDelete,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return insufficientPermission?.call(this);
   }
@@ -316,6 +333,7 @@ class _$InsufficientPermissionImpl implements _InsufficientPermission {
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     TResult Function(_UnableToDelete value)? unableToDelete,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (insufficientPermission != null) {
@@ -374,6 +392,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
     required TResult Function() unableToDelete,
+    required TResult Function() notFound,
   }) {
     return unableToUpdate();
   }
@@ -385,6 +404,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
     TResult? Function()? insufficientPermission,
     TResult? Function()? unableToUpdate,
     TResult? Function()? unableToDelete,
+    TResult? Function()? notFound,
   }) {
     return unableToUpdate?.call();
   }
@@ -396,6 +416,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
     TResult Function()? unableToDelete,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (unableToUpdate != null) {
@@ -412,6 +433,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
     required TResult Function(_UnableToDelete value) unableToDelete,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return unableToUpdate(this);
   }
@@ -423,6 +445,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
     TResult? Function(_InsufficientPermission value)? insufficientPermission,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
     TResult? Function(_UnableToDelete value)? unableToDelete,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return unableToUpdate?.call(this);
   }
@@ -434,6 +457,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     TResult Function(_UnableToDelete value)? unableToDelete,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (unableToUpdate != null) {
@@ -492,6 +516,7 @@ class _$UnableToDeleteImpl implements _UnableToDelete {
     required TResult Function() insufficientPermission,
     required TResult Function() unableToUpdate,
     required TResult Function() unableToDelete,
+    required TResult Function() notFound,
   }) {
     return unableToDelete();
   }
@@ -503,6 +528,7 @@ class _$UnableToDeleteImpl implements _UnableToDelete {
     TResult? Function()? insufficientPermission,
     TResult? Function()? unableToUpdate,
     TResult? Function()? unableToDelete,
+    TResult? Function()? notFound,
   }) {
     return unableToDelete?.call();
   }
@@ -514,6 +540,7 @@ class _$UnableToDeleteImpl implements _UnableToDelete {
     TResult Function()? insufficientPermission,
     TResult Function()? unableToUpdate,
     TResult Function()? unableToDelete,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (unableToDelete != null) {
@@ -530,6 +557,7 @@ class _$UnableToDeleteImpl implements _UnableToDelete {
         insufficientPermission,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
     required TResult Function(_UnableToDelete value) unableToDelete,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return unableToDelete(this);
   }
@@ -541,6 +569,7 @@ class _$UnableToDeleteImpl implements _UnableToDelete {
     TResult? Function(_InsufficientPermission value)? insufficientPermission,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
     TResult? Function(_UnableToDelete value)? unableToDelete,
+    TResult? Function(_NotFound value)? notFound,
   }) {
     return unableToDelete?.call(this);
   }
@@ -552,6 +581,7 @@ class _$UnableToDeleteImpl implements _UnableToDelete {
     TResult Function(_InsufficientPermission value)? insufficientPermission,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     TResult Function(_UnableToDelete value)? unableToDelete,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (unableToDelete != null) {
@@ -563,4 +593,128 @@ class _$UnableToDeleteImpl implements _UnableToDelete {
 
 abstract class _UnableToDelete implements QuestionFailure {
   const factory _UnableToDelete() = _$UnableToDeleteImpl;
+}
+
+/// @nodoc
+abstract class _$$NotFoundImplCopyWith<$Res> {
+  factory _$$NotFoundImplCopyWith(
+          _$NotFoundImpl value, $Res Function(_$NotFoundImpl) then) =
+      __$$NotFoundImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NotFoundImplCopyWithImpl<$Res>
+    extends _$QuestionFailureCopyWithImpl<$Res, _$NotFoundImpl>
+    implements _$$NotFoundImplCopyWith<$Res> {
+  __$$NotFoundImplCopyWithImpl(
+      _$NotFoundImpl _value, $Res Function(_$NotFoundImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionFailure
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$NotFoundImpl implements _NotFound {
+  const _$NotFoundImpl();
+
+  @override
+  String toString() {
+    return 'QuestionFailure.notFound()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NotFoundImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unableToUpdate,
+    required TResult Function() unableToDelete,
+    required TResult Function() notFound,
+  }) {
+    return notFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermission,
+    TResult? Function()? unableToUpdate,
+    TResult? Function()? unableToDelete,
+    TResult? Function()? notFound,
+  }) {
+    return notFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unableToUpdate,
+    TResult Function()? unableToDelete,
+    TResult Function()? notFound,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(_UnableToUpdate value) unableToUpdate,
+    required TResult Function(_UnableToDelete value) unableToDelete,
+    required TResult Function(_NotFound value) notFound,
+  }) {
+    return notFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_InsufficientPermission value)? insufficientPermission,
+    TResult? Function(_UnableToUpdate value)? unableToUpdate,
+    TResult? Function(_UnableToDelete value)? unableToDelete,
+    TResult? Function(_NotFound value)? notFound,
+  }) {
+    return notFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_InsufficientPermission value)? insufficientPermission,
+    TResult Function(_UnableToUpdate value)? unableToUpdate,
+    TResult Function(_UnableToDelete value)? unableToDelete,
+    TResult Function(_NotFound value)? notFound,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NotFound implements QuestionFailure {
+  const factory _NotFound() = _$NotFoundImpl;
 }
