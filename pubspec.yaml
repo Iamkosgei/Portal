@@ -58,6 +58,10 @@ dev_dependencies:
 
   floor_generator: ^1.4.2
 
+  mockito: ^5.4.4
+
+  bloc_test: ^9.1.0
+
 flutter:
   uses-material-design: true
 

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:portal/core/database/database.dart';
@@ -53,7 +51,6 @@ class SubmissionRepositoryImpl implements ISubmissionRepository {
       );
       return right(submissions);
     } catch (e) {
-      log("Error---- $e");
       return left(const QuestionFailure.unexpected());
     }
   }

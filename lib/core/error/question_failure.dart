@@ -9,4 +9,5 @@ class QuestionFailure with _$QuestionFailure {
       _InsufficientPermission;
   const factory QuestionFailure.unableToUpdate() = _UnableToUpdate;
   const factory QuestionFailure.unableToDelete() = _UnableToDelete;
+  const factory QuestionFailure.notFound() = _NotFound;
 }
